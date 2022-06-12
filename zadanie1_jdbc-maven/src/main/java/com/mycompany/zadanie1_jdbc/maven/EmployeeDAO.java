@@ -3,6 +3,10 @@ package com.mycompany.zadanie1_jdbc.maven;
 import DBUtil.DBUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeDAO {
     
@@ -28,5 +32,36 @@ public class EmployeeDAO {
         
         
     }
+      
+      public List<Employee> getAllEmployeesList() throws SQLException
+     {
+        
+         String query = "SELECT prac_id,prac_imie,prac_nazwisko,prac_wiek,prac_nr_telefonu,prac_email FROM pracownicy";
+         List<Employee> list = new ArrayList<Employee>();
+         Employee p=null;
+         PreparedStatement pst;
+         try{
+             pst = con.prepareStatement(query);
+         ResultSet rs = pst.executeQuery();
+         while (rs.next())
+         {
+             p=new Employee();
+             p.setPracId(rs.getInt("prac_id"));
+             p.setPracImie(rs.getString("prac_imie"));
+             p.setPracNazwisko(rs.getString("prac_nazwisko"));
+             p.setPracWiek(rs.getInt("prac_wiek"));
+             p.setPracNrTelefonu(rs.getString("prac_nr_telefonu"));
+             p.setPracEmail(rs.getString("prac_email"));
+             list.add(p);
+         }
+         }catch(Exception ex){
+             System.out.println(ex);
+         }
+         
+         return list;
+     }
+      
+          
+    
     
 }
