@@ -33,6 +33,24 @@ public class EmployeeDAO {
         
     }
       
+      public Employee getByID(int prac_id)
+    {
+         
+         String query = "select * from pracownicy where prac_id=?";
+        PreparedStatement pst;
+        try {
+           
+            pst = con.prepareStatement(query);
+            pst.setInt(1, prac_id);
+            ResultSet rs = pst.executeQuery();
+            return setEmp(rs);
+            
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        return null;
+    }
+      
       public List<Employee> getAllEmployeesList() throws SQLException
      {
         
@@ -62,6 +80,17 @@ public class EmployeeDAO {
      }
       
           
-    
+     private Employee setEmp(ResultSet rs) throws SQLException {
+         Employee p = new Employee();
+             rs.next();
+             p.setPracId(rs.getInt("prac_id"));
+             p.setPracImie(rs.getString("prac_imie"));
+             p.setPracNazwisko(rs.getString("prac_nazwisko"));
+             p.setPracWiek(rs.getInt("prac_wiek"));
+             p.setPracNrTelefonu(rs.getString("prac_nr_telefonu"));
+             p.setPracEmail(rs.getString("prac_email"));
+             return p;
+    }
+     
     
 }
