@@ -112,7 +112,7 @@ public class EmployeeDAO {
 
     public List<Employee> findByEmailEndsWith(String s) throws SQLException {
 
-        String query = "select * from pracownicy where prac_email like '%' + ?";
+        String query = "select prac_id,prac_imie,prac_nazwisko,prac_wiek,prac_nr_telefonu,prac_email from pracownicy where prac_email like '%' + ?";
         List<Employee> list = new ArrayList<Employee>();
         Employee p = null;
         PreparedStatement pst;
