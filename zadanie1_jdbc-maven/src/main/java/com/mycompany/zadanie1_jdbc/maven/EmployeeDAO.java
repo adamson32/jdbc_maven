@@ -33,6 +33,23 @@ public class EmployeeDAO {
         
     }
       
+      public Employee deleteByID(int prac_id)
+    {
+        String query ="delete from pracownicy where prac_id= ?";
+        PreparedStatement pst;
+        
+        try {
+            
+            pst = con.prepareStatement(query);
+            pst.setInt(1, prac_id);
+            pst.executeUpdate();
+           
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        return null;
+    }
+      
       public Employee getByID(int prac_id)
     {
          

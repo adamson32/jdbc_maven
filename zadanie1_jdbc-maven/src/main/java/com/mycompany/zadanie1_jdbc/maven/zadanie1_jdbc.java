@@ -15,6 +15,7 @@ public class zadanie1_jdbc {
          //getAllEmployees(dao);
         //Employee p1= dao.getByID(1);
         //System.out.println(p1.getPracImie()+" "+p1.getPracEmail());
+        //dao.deleteByID(3);
     }
     
     
