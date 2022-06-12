@@ -10,12 +10,13 @@ public class zadanie1_jdbc {
     
     public static void main(String[] args) throws SQLException {
         EmployeeDAO dao =new EmployeeDAO();
-         //Employee p1=new Employee("Kasia","Kowalska",28,"123456987","jan.kowalski@op.pl");
-         //dao.add(p1);
-         //getAllEmployees(dao);
-        //Employee p1= dao.getByID(1);
-        //System.out.println(p1.getPracImie()+" "+p1.getPracEmail());
-        //dao.deleteByID(3);
+//         Employee p1=new Employee("Kasia","Kowalska",28,"123456987","jan.kowalski@op.pl");
+//         dao.add(p1);
+//         getAllEmployees(dao);
+//        Employee p2= dao.getByID(1);
+//        System.out.println(p1.getPracImie()+" "+p1.getPracEmail());
+//        dao.deleteByID(3);
+//        dao.update(1,"Adam", "Kowalski", 23,"798576243", "adam@op.pl");
     }
     
     

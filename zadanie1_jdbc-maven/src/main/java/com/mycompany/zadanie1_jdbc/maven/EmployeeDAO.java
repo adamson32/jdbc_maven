@@ -68,6 +68,30 @@ public class EmployeeDAO {
         return null;
     }
       
+       public void update(int prac_id,String prac_imie,String prac_nazwisko,int prac_wiek,String prac_nr_telefon,String prac_email)
+    {
+        
+        String query="update pracownicy\n" +
+                "set prac_imie= ?,prac_nazwisko= ?,prac_wiek= ?,prac_nr_telefonu= ?,prac_email= ?\n"+
+                "where prac_id= ?";
+        PreparedStatement pst;
+        try {
+            pst = con.prepareStatement(query);
+            pst.setString(1, prac_imie);
+            pst.setString(2, prac_nazwisko);
+            pst.setInt(3, prac_wiek);
+            pst.setString(4, prac_nr_telefon);
+            pst.setString(5, prac_email);
+            pst.setInt(6, prac_id);
+            pst.executeUpdate();
+             
+         } catch (Exception ex) {
+             System.out.println(ex);
+         }
+        
+        
+    }
+      
       public List<Employee> getAllEmployeesList() throws SQLException
      {
         
