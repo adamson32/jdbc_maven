@@ -10,7 +10,7 @@ public class DBUtil {
     private static final String DB_DRIVER_CLASS="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	private static final String DB_USERNAME="adam";
 	private static final String DB_PASSWORD="adam";
-	private static final String DB_URL ="jdbc:sqlserver://LAPTOP-442E11CB\\SQLEXPRESS:1433";
+	private static final String DB_URL ="jdbc:sqlserver://LAPTOP-442E11CB\\SQLEXPRESS:1433;databaseName=company;selectMethod=cursor;encrypt=false";
 	
 	private static Connection connection = null;
 	static{
